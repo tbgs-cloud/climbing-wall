@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQ Climb | Torquay Boys' Grammar School</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#0e2c54;
+    --secondary:#f3b229;
+    --light:#ffffff;
+    --grey:#f5f7fa;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+    background:white;
+    color:#333;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.slides{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    animation:heroSlider 20s infinite;
+}
+
+.slide:nth-child(1){
+    background-image:url("images/climb1.jpg");
+    animation-delay:0s;
+}
+
+.slide:nth-child(2){
+    background-image:url("images/climb2.jpg");
+    animation-delay:5s;
+}
+
+.slide:nth-child(3){
+    background-image:url("images/climb3.jpg");
+    animation-delay:10s;
+}
+
+.slide:nth-child(4){
+    background-image:url("images/climb4.jpg");
+    animation-delay:15s;
+}
+
+
+.slide:nth-child(5){
+    background-image:url("images/climb5.jpg");
+    animation-delay:15s;
+}
+
+@keyframes heroSlider {
+    0%{opacity:0;}
+    5%{opacity:1;}
+    25%{opacity:1;}
+    30%{opacity:0;}
+    100%{opacity:0;}
+}
+
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:5rem;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:1.4rem;
+    max-width:800px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    margin-top:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-btn{
+    padding:15px 35px;
+    background:var(--secondary);
+    color:#000;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:30px;
+}
+
+.hero-btn.outline{
+    background:transparent;
+    color:white;
+    border:2px solid white;
+}
+
+/* ABOUT */
+
+.section{
+    padding:100px 10%;
+}
+
+.section-title{
+    color:var(--primary);
+    margin-bottom:25px;
+    font-size:2.6rem;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-grid img{
+    width:100%;
+    border-radius:16px;
+}
+
+/* STATS */
+
+.stats{
+    background:var(--primary);
+    color:white;
+}
+
+.stat-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:3rem;
+    color:var(--secondary);
+}
+
+/* BENEFITS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+/* GALLERY */
+
+.gallery-section{
+    background:var(--grey);
+}
+
+.gallery-slider{
+    overflow:hidden;
+    width:100%;
+}
+
+.gallery-track{
+    display:flex;
+    width:max-content;
+    animation:galleryScroll 30s linear infinite;
+}
+
+.gallery-track img{
+    width:380px;
+    height:260px;
+    object-fit:cover;
+    margin-right:20px;
+    border-radius:12px;
+}
+
+@keyframes galleryScroll{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* WAIVER BANNER */
+
+.waiver-banner{
+    background:#fff4e0;
+    border:2px solid var(--secondary);
+    border-radius:16px;
+    padding:30px 35px;
+    margin-bottom:60px;
+}
+
+.waiver-banner h3{
+    color:var(--primary);
+    font-size:1.4rem;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.waiver-banner ul{
+    list-style:none;
+    padding-left:0;
+}
+
+.waiver-banner li{
+    position:relative;
+    padding-left:24px;
+    margin-bottom:8px;
+    line-height:1.5;
+}
+
+.waiver-banner li::before{
+    content:"!";
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--secondary);
+    font-weight:700;
+}
+
+/* SESSION INFO */
+
+.info-intro{
+    margin-bottom:50px;
+    line-height:1.7;
+    max-width:850px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.info-card{
+    background:white;
+    border-radius:16px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.info-card h4{
+    color:var(--primary);
+    font-size:1.2rem;
+    margin-bottom:15px;
+    padding-bottom:12px;
+    border-bottom:2px solid var(--secondary);
+}
+
+.info-card ul{
+    list-style:none;
+    padding-left:0;
+}
+
+.info-card ul li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:10px;
+    line-height:1.5;
+    font-size:.95rem;
+}
+
+.info-card ul li::before{
+    content:"•";
+    position:absolute;
+    left:0;
+    color:var(--secondary);
+    font-weight:700;
+}
+
+.info-card p{
+    line-height:1.6;
+    font-size:.95rem;
+}
+
+/* BOOKING */
+
+.booking-section{
+    background:var(--grey);
+}
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:50px;
+    align-items:stretch;
+}
+
+.booking-info{
+    background:var(--primary);
+    color:white;
+    border-radius:16px;
+    padding:45px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.booking-info h3{
+    font-size:1.9rem;
+    margin-bottom:18px;
+    color:white;
+}
+
+.booking-info p{
+    margin-bottom:25px;
+    opacity:.9;
+    line-height:1.6;
+}
+
+.booking-list{
+    list-style:none;
+    margin-bottom:30px;
+}
+
+.booking-list li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.booking-list li span:first-child{
+    opacity:.85;
+}
+
+.booking-list li span:last-child{
+    font-weight:600;
+    color:var(--secondary);
+}
+
+.book-btn{
+    align-self:flex-start;
+    padding:15px 35px;
+    background:var(--secondary);
+    color:#000;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.book-btn:hover{
+    transform:translateY(-3px);
+}
+
+.booking-form{
+    background:white;
+    border-radius:16px;
+    padding:40px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.booking-form h3{
+    color:var(--primary);
+    margin-bottom:25px;
+    font-size:1.5rem;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:500;
+    font-size:.92rem;
+    color:var(--primary);
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #dde2e8;
+    border-radius:8px;
+    font-size:.95rem;
+    color:#333;
+    background:var(--grey);
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-submit{
+    width:100%;
+    padding:15px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-weight:600;
+    font-size:1rem;
+    cursor:pointer;
+    margin-top:10px;
+    transition:.3s;
+}
+
+.form-submit:hover{
+    background:#173f74;
+}
+
+/* LOCATION / MAP */
+
+.location-section{
+    background:white;
+}
+
+.location-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.location-details p{
+    margin-bottom:18px;
+    line-height:1.7;
+}
+
+.location-details .addr{
+    font-weight:600;
+    color:var(--primary);
+    font-size:1.1rem;
+    margin-bottom:10px;
+}
+
+.map-wrap{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    line-height:0;
+}
+
+.map-wrap iframe{
+    width:100%;
+    height:420px;
+    border:0;
+    display:block;
+}
+
+.directions-link{
+    display:inline-block;
+    margin-top:20px;
+    color:var(--primary);
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:2px solid var(--secondary);
+    padding-bottom:2px;
+}
+
+/* CTA */
+
+.cta{
+    background:linear-gradient(135deg,var(--primary),#173f74);
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:2.8rem;
+    margin-bottom:20px;
+}
+
+.cta-buttons{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.cta a{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 35px;
+    background:var(--secondary);
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    border-radius:30px;
+}
+
+.cta a.outline{
+    background:transparent;
+    border:2px solid white;
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    background:#081b35;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+@media(max-width:900px){
+
+.hero-content h1{
+    font-size:3rem;
+}
+
+.about-grid{
+    grid-template-columns:1fr;
+}
+
+.stat-container{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.booking-grid{
+    grid-template-columns:1fr;
+}
+
+.location-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.stat-container{
+    grid-template-columns:1fr;
+}
+
+.hero-content p{
+    font-size:1rem;
+}
+
+.form-row{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="slides">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+	<div class="slide"></div>
+</div>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+    <h1>TQ CLIMB</h1>
+    <p>Dare to Climb. Dare to Achieve.</p>
+    <div class="hero-buttons">
+        <a href="#booking" class="hero-btn">Book Your Climb</a>
+        <a href="#about" class="hero-btn outline">Discover More</a>
+    </div>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+<div class="about-grid">
+
+<div>
+    <h2 class="section-title">About TQ Climb</h2>
+
+    <p>
+        TQ Climb is the dedicated climbing facility at Torquay Boys' Grammar School.
+        Designed to inspire confidence, resilience, teamwork and personal development,
+        it provides opportunities for beginners and experienced climbers alike.
+    </p>
+
+<!--
+    <p>
+        Built through community support and fundraising, the wall now serves students,
+        enrichment programmes, outdoor education initiatives and future community partnerships.
+    </p>
+ -->
+</div>
+<!--
+<div>
+    <img src="images/climbing-wall.jpg" alt="TQ Climb">
+</div>
+-->
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="section stats">
+
+<div class="stat-container">
+
+<div class="stat">
+    <h2>£100k</h2>
+    <p>Project Value</p>
+</div>
+
+<div class="stat">
+    <h2>4</h2>
+    <p>Years Development</p>
+</div>
+
+<div class="stat">
+    <h2>2026</h2>
+    <p>Official Launch</p>
+</div>
+
+<div class="stat">
+    <h2>100%</h2>
+    <p>Qualified Supervision</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- BENEFITS -->
+
+<section class="section">
+
+<h2 class="section-title">Why Climb?</h2>
+
+<div class="cards">
+
+<div class="card">
+    <h3>Confidence</h3>
+    <p>Build self-belief through personal achievement and progression.</p>
+</div>
+
+<div class="card">
+    <h3>Resilience</h3>
+    <p>Learn to overcome challenges and persevere through setbacks.</p>
+</div>
+
+<div class="card">
+    <h3>Teamwork</h3>
+    <p>Develop trust, communication and leadership skills.</p>
+</div>
+
+<div class="card">
+    <h3>Wellbeing</h3>
+    <p>Promote lifelong physical activity and mental wellbeing.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- MOVING GALLERY -->
+
+<section class="section gallery-section">
+
+<h2 class="section-title">TQ Climb Gallery</h2>
+
+<div class="gallery-slider">
+
+<div class="gallery-track">
+
+<img src="images/gallery/1.jpg">
+<img src="images/gallery/2.jpg">
+<img src="images/gallery/3.jpg">
+<img src="images/gallery/4.jpg">
+<img src="images/gallery/5.jpg">
+<img src="images/gallery/6.jpg">
+<img src="images/gallery/7.jpg">
+
+<img src="images/gallery/1.jpg">
+<img src="images/gallery/2.jpg">
+<img src="images/gallery/3.jpg">
+<img src="images/gallery/4.jpg">
+<img src="images/gallery/5.jpg">
+<img src="images/gallery/6.jpg">
+<img src="images/gallery/7.jpg">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SESSION INFORMATION -->
+
+<section class="section">
+<!--
+<div class="waiver-banner">
+    <h3>⚠ Important: Waiver Required</h3>
+    <ul>
+        <li>Every participant must complete the online waiver before attending.</li>
+        <li>Participants under 18 must have the waiver completed by a parent or legal guardian.</li>
+        <li>Failure to complete the waiver before arrival may result in participation being refused and no refund being issued.</li>
+    </ul>
+</div>
+ -->
+<h2 class="section-title">Session Information</h2>
+
+<p class="info-intro">
+    Experience outdoor climbing at TQ Climb, the climbing facility at Torquay Boys' Grammar School.
+    Sessions are 90 minutes long and suitable for complete beginners and experienced climbers alike,
+    with access to our 7.5m auto-belay climbing wall and outdoor bouldering wall, with all climbing
+    equipment provided.
+</p>
+
+<div class="info-grid">
+
+    <div class="info-card">
+        <h4>Participant Requirements</h4>
+        <ul>
+            <li>Ages 8+</li>
+            <li>Minimum weight: 10kg</li>
+            <li>Maximum weight: 110kg</li>
+        </ul>
+    </div>
+
+    <div class="info-card">
+        <h4>Parent & Guardian Requirements</h4>
+        <ul>
+            <li>Participants aged under 16 must have a parent or guardian remain on site throughout the session to assist with clipping.</li>
+            <li>Participants aged 16–18 must have a parent or guardian be contactable throughout the session.</li>
+        </ul>
+    </div>
+
+    <div class="info-card">
+        <h4>Before You Arrive</h4>
+        <ul>
+            <li>Arrive 10–15 minutes before your session start time.</li>
+            <li>Ensure your waiver has been completed.</li>
+            <li>Wear comfortable clothing suitable for physical activity.</li>
+        </ul>
+    </div>
+
+    <div class="info-card">
+        <h4>Footwear</h4>
+        <p>
+            Climbing shoes are recommended but not required. Suitable trainers
+            are perfectly acceptable for most climbers and routes.
+        </p>
+        <br>
+        <p>
+            Open-toed footwear, sandals, sliders, flip-flops and Crocs are
+            not permitted.
+        </p>
+    </div>
+
+    <div class="info-card">
+        <h4>Equipment</h4>
+        <p>
+            All climbing equipment is provided. Personal climbing equipment
+            may not be used during public sessions.
+        </p>
+    </div>
+<!--
+    <div class="info-card">
+        <h4>Weather</h4>
+        <p>
+            TQ Climb is an outdoor activity. Sessions may be postponed,
+            suspended or cancelled where weather conditions make climbing
+            unsafe. If a session is affected by adverse weather, participants
+            will be contacted using the details provided at booking.
+        </p>
+    </div>
+ -->
+</div>
+
+</section>
+
+<!-- BOOKING -->
+
+<section id="booking" class="section booking-section">
+
+<h2 class="section-title">Book Your Climb</h2>
+
+<div class="booking-grid">
+
+<div class="booking-info">
+    <h3>90 Minute Climbing Session</h3>
+    <p>
+        Experience outdoor climbing at TQ Climb. Suitable for complete
+        beginners and experienced climbers alike, every session includes
+        access to our 7.5m auto-belay climbing wall and outdoor bouldering
+        wall, with all climbing equipment provided.
+    </p>
+
+    <ul class="booking-list">
+        <li><span>Session Length</span><span>90 Minutes</span></li>
+        <li><span>Minimum Age</span><span>8+</span></li>
+        <li><span>Weight Range</span><span>10kg – 110kg</span></li>
+        <li><span>Equipment</span><span>All Provided</span></li>
+    </ul>
+
+    <a href="https://tbgs.tygit.com/shop/group-calendar/pk/423de1ed6658f12dcc393a4ed94487fb#booking-options" target="_blank" rel="noopener" class="book-btn">Book Tickets Now</a>
+</div>
+
+<div class="booking-form" id="booking-form">
+
+    <h3>Enquire About a Session</h3>
+    <p style="margin-bottom:20px; color:#666; font-size:.92rem;">
+        Have a question before booking, or want to arrange a group visit?
+        Send us your details and we'll get back to you. To book directly,
+        use the Book Tickets Now.
+    </p>
+	<p>
+        For enquiries about TQ Climb, please contact us at
+        <a href="mailto:climbingwall@tbgs.torbay.sch.uk">climbingwall@tbgs.torbay.sch.uk</a>
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LOCATION / MAP -->
+
+<section class="section location-section">
+
+<h2 class="section-title">Find Us</h2>
+
+<div class="location-grid">
+
+<div class="location-details">
+    <p class="addr">Torquay Boys' Grammar School</p>
+    <p>
+        Shiphay Manor Drive, Torquay, TQ2 7EL
+    </p>
+    <p>
+        TQ Climb is located on the school site at Torquay Boys' Grammar School.
+        Free parking is available on site, with the climbing facility well
+        signposted from the main entrance.
+    </p>
+    <a class="directions-link" href="https://www.bing.com/maps/search?name=Torquay+Boys%27+Grammar+School&trfc=&mepi=0%7E%7EEmbedded%7ELargeMapLink&FORM=MPSRPL&style=r&q=Torquay+Boys%27+Grammar+School&ss=id.ypid%3AYN9452C45B533EDE67&ppois=50.47612380981445_-3.557055711746216_Torquay+Boys%27+Grammar+School&cp=50.476124%7E-3.557056&lvl=15" target="_blank" rel="noopener">
+        Get Directions on Maps &rarr;
+    </a>
+</div>
+
+<div class="map-wrap">
+
+<div class="map-wrapper">
+    <iframe
+        src="https://www.google.com/maps?q=Torquay%20Boys%20Grammar%20School&output=embed"
+        loading="lazy"
+        allowfullscreen
+        title="Map showing Torquay Boys' Grammar School">
+    </iframe>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="section cta">
+
+<h2>Ready To Reach New Heights?</h2>
+
+<p>
+Learn more about the opportunities available through TQ Climb.
+</p>
+
+<div class="cta-buttons">
+    <a href="#booking">Book Your Climb</a>
+    <a href="https://www.tbgs.co.uk" class="outline">Visit TBGS</a>
+</div>
+
+</section>
+
+<footer>
+
+<h3>TQ Climb</h3>
+
+<p>
+Torquay Boys' Grammar School<br>
+Shiphay Manor Drive, Torquay, TQ2 7EL
+</p>
+
+</footer>
+
+</body>
+</html>
