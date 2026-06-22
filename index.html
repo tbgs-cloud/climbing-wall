@@ -29,6 +29,52 @@ body{
     color:#333;
 }
 
+/* SITE LOGO (top-right) */
+.site-logo{
+    position:fixed;
+    top:-2px;
+    right:16px;
+    z-index:9999;
+    display:block;
+    opacity:1;
+    transition:opacity .36s ease, transform .36s ease;
+    background:transparent;
+    padding:0;
+}
+.site-logo img{
+    width:90px;
+    height:auto;
+    display:block;
+    transform-origin:center;
+    animation:logoFloat 6s ease-in-out infinite;
+    transition:transform .22s cubic-bezier(.2,.9,.3,1);
+    will-change:transform;
+    background:transparent;
+    padding:0;
+    /* subtle shadow only, no white badge */
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    border-radius:8px;
+}
+.site-logo:hover img{
+    transform:scale(1.08) rotate(-3deg);
+}
+@keyframes logoFloat{
+    0%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-5px) rotate(2deg);}
+    100%{transform:translateY(0) rotate(0deg);}
+}
+
+@media(max-width:600px){
+    .site-logo img{width:52px}
+}
+
+/* hide logo when leaving the hero (fades and slides up slightly) */
+.site-logo.hidden{
+    opacity:0;
+    transform:translateY(-8px) scale(.98);
+    pointer-events:none;
+}
+
 /* HERO */
 
 .hero{
@@ -150,6 +196,28 @@ body{
     color:var(--primary);
     margin-bottom:25px;
     font-size:2.6rem;
+    /* scroll-reveal: start hidden and slide up into place */
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1);
+}
+
+.section-title.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* About image reveal (hidden by default, shown when logo hides) */
+.about-img{
+    width:100%;
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .48s ease, transform .48s cubic-bezier(.2,.9,.3,1);
+    will-change:opacity,transform;
+}
+.about-img.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .about-grid{
@@ -598,13 +666,13 @@ footer{
     grid-template-columns:1fr;
 }
 
-}
-
 </style>
 </head>
 
 <body>
-
+    <a href="" class="site-logo" aria-label="TQ Climb home">
+        <img src="logo/Tq-logo1.png" alt="TQ Logo">
+    </a>
 <!-- HERO -->
 
 <section class="hero">
@@ -652,11 +720,11 @@ footer{
     </p>
  -->
 </div>
-<!--
+
 <div>
-    <img src="images/climbing-wall.jpg" alt="TQ Climb">
+    <img class="about-img" src="images/about.jpeg" alt="TQ Climb">
 </div>
--->
+
 </div>
 
 </section>
@@ -737,6 +805,7 @@ footer{
 <img src="images/gallery/2.jpg">
 <img src="images/gallery/3.jpg">
 <img src="images/gallery/4.jpg">
+<img src="images/gallery/5.jpg">
 <img src="images/gallery/6.jpg">
 <img src="images/gallery/7.jpg">
 
@@ -744,6 +813,7 @@ footer{
 <img src="images/gallery/2.jpg">
 <img src="images/gallery/3.jpg">
 <img src="images/gallery/4.jpg">
+<img src="images/gallery/5.jpg">
 <img src="images/gallery/6.jpg">
 <img src="images/gallery/7.jpg">
 
@@ -951,6 +1021,65 @@ Shiphay Manor Drive, Torquay, TQ2 7EL
 </p>
 
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    const logo = document.querySelector('.site-logo');
+    const hero = document.querySelector('.hero');
+    if (!logo || !hero) return;
+
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            // also toggle About title when logo hides/shows
+            const aboutTitle = document.querySelector('#about .section-title');
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    logo.classList.remove('hidden');
+                    
+                    const aboutImg = document.querySelector('#about .about-img');
+                    if (aboutImg) aboutImg.classList.remove('visible');
+                } else {
+                    logo.classList.add('hidden');
+                    
+                    const aboutImg = document.querySelector('#about .about-img');
+                    if (aboutImg) aboutImg.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        io.observe(hero);
+        // observe section titles and reveal when they enter the viewport
+        const titles = document.querySelectorAll('.section-title');
+        if (titles.length) {
+            const titleObserver = new IntersectionObserver((entries) => {
+                entries.forEach(en => {
+                    if (en.isIntersecting) en.target.classList.add('visible');
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+            titles.forEach(t => titleObserver.observe(t));
+        }
+
+        // also toggle the about image visibility in sync with the logo
+        const aboutImg = document.querySelector('#about .about-img');
+        if (aboutImg) {
+            // ensure it's hidden initially
+            aboutImg.classList.remove('visible');
+        }
+    } else {
+        const onScroll = () => {
+            const aboutImg = document.querySelector('#about .about-img');
+            if (window.scrollY > hero.offsetHeight * 0.4) {
+                logo.classList.add('hidden');
+                if (aboutImg) aboutImg.classList.add('visible');
+            } else {
+                logo.classList.remove('hidden');
+                if (aboutImg) aboutImg.classList.remove('visible');
+            }
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, {passive:true});
+    }
+});
+</script>
 
 </body>
 </html>
