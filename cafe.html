@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carabiner Cafe | TBGS Climbing Wall</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:#f5f7fa;
+    color:#333;
+    line-height:1.6;
+}
+
+/* Sticky Header */
+
+.sticky-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#1f4e79;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:bold;
+}
+
+.sticky-header a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    padding:10px 16px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    transition:0.3s;
+}
+
+.sticky-header a:hover{
+    background:rgba(255,255,255,0.25);
+}
+
+/* Hero */
+
+.hero{
+    background:
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    url("images/cafe-hero.jpg");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.2rem;
+}
+
+/* Banner */
+
+.offer-banner{
+    background:#ffd966;
+    color:#333;
+    text-align:center;
+    padding:15px;
+    font-weight:bold;
+    font-size:1.1rem;
+}
+
+/* Content */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Highlights */
+
+.specials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.special{
+    background:linear-gradient(135deg,#1f4e79,#2f6ea5);
+    color:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.special:hover{
+    transform:translateY(-5px);
+}
+
+.icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.special h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#ffd966;
+    font-size:2rem;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+
+/* Gallery */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+
+/* Menu */
+
+.menu-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.menu-table th{
+    background:#1f4e79;
+    color:white;
+    padding:15px;
+    text-align:left;
+}
+
+.menu-table td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+}
+
+.menu-table tr:hover{
+    background:#f8f8f8;
+}
+
+/* Footer */
+
+.footer{
+    text-align:center;
+    padding:40px;
+}
+
+.footer a{
+    display:inline-block;
+    background:#1f4e79;
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.footer a:hover{
+    background:#163a5c;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .sticky-header{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="sticky-header">
+    <div class="logo">☕ Carabiner Cafe</div>
+
+    <a href="index.html">
+        ← Back to Climbing Wall
+    </a>
+</nav>
+<!--
+<section class="hero">
+    <h1>Carabiner Cafe</h1>
+
+    <p>
+        Why not enjoy some refreshments at our Carabiner Cafe.
+        Treat yourself to one of our homemade cakes and relax
+        while watching the climbing action.
+    </p>
+</section>
+-->
+<div class="offer-banner">
+    ☕ Don't miss our Hot Drink & Cake Deal for just £4.00!
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Welcome to the Carabiner Cafe</h2>
+
+        <br>
+
+        <p>
+        Treat yourself to one of our homemade cakes and freshly prepared
+        hot drinks while watching climbers take on the wall.
+
+		<!--
+            Parents, carers, spectators and visitors are welcome
+            to relax in our café while climbers take part in sessions.
+            Enjoy a selection of freshly prepared hot drinks,
+            cold drinks, snacks and homemade cakes in a comfortable
+            and friendly environment.
+			
+		-->
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>⭐ Cafe Highlights</h2>
+
+        <div class="specials">
+
+            <div class="special">
+                <div class="icon">☕</div>
+
+                <h3>Hot Drink &amp; Cake Deal</h3>
+
+                <div class="price">£4.00</div>
+
+                <p>
+                    The perfect climbing break.
+                </p>
+            </div>
+
+            <div class="special">
+                <div class="icon">🥤</div>
+
+                <h3>Snack Deal</h3>
+
+                <div class="price">£2.00</div>
+
+                <p>
+                    Cold drink plus crisps or chocolate bar.
+                </p>
+            </div>
+
+            <div class="special">
+                <div class="icon">🍰</div>
+
+                <h3>Homemade Cakes</h3>
+
+                <div class="price">£2.50</div>
+
+                <p>
+                    Freshly baked and available daily while stocks last.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+<!--
+    <div class="card">
+
+        <h2>Gallery</h2>
+
+        <br>
+
+        <div class="gallery">
+
+            <img src="images/cafe1.jpg" alt="Carabiner Cafe">
+
+            <img src="images/cafe2.jpg" alt="Coffee and Cake">
+
+            <img src="images/cafe3.jpg" alt="Cafe Seating Area">
+
+            <img src="images/cafe4.jpg" alt="Visitors Enjoying Refreshments">
+
+        </div>
+
+    </div>
+-->
+    <div class="card">
+
+        <h2>Cafe Menu</h2>
+
+        <br>
+
+        <table class="menu-table">
+
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+
+            <tr>
+                <td>Americano</td>
+                <td>£2.00</td>
+            </tr>
+
+            <tr>
+                <td>Latte</td>
+                <td>£2.50</td>
+            </tr>
+
+            <tr>
+                <td>Cappuccino</td>
+                <td>£2.50</td>
+            </tr>
+
+            <tr>
+                <td>Hot Chocolate</td>
+                <td>£2.50</td>
+            </tr>
+
+            <tr>
+                <td>Tea</td>
+                <td>£2.00</td>
+            </tr>
+
+            <tr>
+                <td>Cake Slice</td>
+                <td>£2.50</td>
+            </tr>
+
+            <tr>
+                <td>Hot Drink &amp; Cake Deal</td>
+                <td>£4.00</td>
+            </tr>
+
+            <tr>
+                <td>Cold Drink</td>
+                <td>£1.30</td>
+            </tr>
+
+            <tr>
+                <td>Burt's Crisps</td>
+                <td>£1.20</td>
+            </tr>
+
+            <tr>
+                <td>Chocolate Bar</td>
+                <td>£1.20</td>
+            </tr>
+
+            <tr>
+                <td>Cold Drink &amp; Crisp or Chocolate Bar Deal</td>
+                <td>£2.00</td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <p>
+            Menu and prices subject to availability.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="footer">
+
+    <a href="index.html">
+        Return to Climbing Wall
+    </a>
+
+</div>
+
+</body>
+</html>
